@@ -173,8 +173,8 @@ if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $savedirandfile)) {
 
 // INSERT INTO DATABASE
 
-$con = mysql_connect("localhost", "localuser", "4bQDVutEfSssjjMJ") or die ('Error: ' . mysql_error());
-mysql_select_db("bookDisplay");
+$con = mysql_connect($host, $user, $pass) or die ('Error: ' . mysql_error());
+mysql_select_db($db_name);
 
 //look up category
 $query = "SELECT * FROM bd_category WHERE category = '$category'";
