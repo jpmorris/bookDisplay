@@ -1,6 +1,5 @@
 TO INSTALL
 
 1) Need a webserver, database, and amazon aws account with access (beyond the scope of this README)
-2) Create database:
-
+2) Create database 'bookDisplay', use the structure by importing bookDisplay.sql
 3) Rename configtemplate.php to config.php and fill with the proper information
