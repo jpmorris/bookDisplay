@@ -3,11 +3,11 @@ include 'config.php';
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="style.css" media="screen" title="bbxcss" />
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" title="bbxcss" />
 <style type="text/css">
 </style>
 
-<script type="text/javascript" src="./navbar.js"> </script>
+<script type="text/javascript" src="js/navbar.js"> </script>
 
 <form id="verifyform" enctype="multipart/form-data" name="form" method="POST" action="processEdit.php">
 <fieldset>
@@ -17,10 +17,10 @@ include 'config.php';
 
 $id = $_GET['id'];
 
-$sql="SELECT * FROM bd_book WHERE id = '".$id."'";
+$query="SELECT * FROM bd_book WHERE id = '".$id."'";
 
-$result = mysql_query($sql);
-$row = mysql_fetch_array($result);
+$result = mysql_query($query);
+$row = mysql_fetch_assoc($result);
 
 $title = $row['title'];
 $author1 = $row['author1'];
@@ -31,34 +31,36 @@ $author5 = $row['author5'];
 $isbn = $row['isbn'];
 $categoryid = $row['category'];
 $subcategoryid = $row['subcategory'];
-$fileLocation = $row['fileLocation'];
-$fileName = $row['fileName'];
-$coverimageLocation = $row['coverimageLocation'];
-$coverimageName = $row['coverimageName'];
+$filelocation = $row['filelocation'];
+$filename = $row['filename'];
+$coverimagelocation = $row['coverimagelocation'];
+$coverimagename = $row['coverimagename'];
 $isocred = $row['isocred'];
 
-$imageurl = 'http://spike/'.$row['coverimageLocation'].$row['coverimageName'];
+
+$imageurl = $webpath.$row['coverimagelocation'].$row['coverimagename'];
 
 
-$sql="SELECT category FROM bd_category WHERE id = '".$categoryid."'";
-$result = mysql_query($sql);
-$row = mysql_fetch_array($result);
+$query="SELECT * FROM bd_category WHERE id = '".$categoryid."'";
+$result = mysql_query($query);
+$row = mysql_fetch_assoc($result);
 $category = $row['category'];
 
 
-$sql="SELECT category FROM bd_category WHERE id = '".$categoryid."'";
-$result = mysql_query($sql);
-$row = mysql_fetch_array($result);
-if(!$row){
+$query="SELECT * FROM bd_subcategory WHERE id = '".$subcategoryid."'";
+$result = mysql_query($query);
+$row = mysql_fetch_assoc($result);
+if($row){
 	$subcategory = $row['subcategory'];
 }
 else{
 	$subcategory = "";
 }
 
-$sql="select *, GROUP_CONCAT(tagname) as cattags from bd_tagmap as a join bd_tag as b on tag_id = b.id where book_id = ".$id;
-$result = mysql_query($sql);
-$row = mysql_fetch_array($result);
+
+$query="select *, GROUP_CONCAT(tagname) as cattags from bd_tagmap as a join bd_tag as b on tag_id = b.id where book_id = ".$id;
+$result = mysql_query($query);
+$row = mysql_fetch_assoc($result);
 $tags = $row['cattags'];
 
 ?>
@@ -70,11 +72,12 @@ $tags = $row['cattags'];
 				<h1>Additional information</h1>		
 				 <ol>
 				 	<li> 
+					 	<input type="hidden" name="id" value="<?php echo $id?>" id="id">	
 						<label for="title">Title</label>
 						<input name="title" type="text" value="<?php echo $title?>" id="title">
 		            </li> 
 						 	<li> 
-						<label for="tags">Title</label>
+						<label for="tags">Tags</label>
 						<input name="tags" type="text" value="<?php echo $tags?>" id="tags">
 		            </li>             
 		            <li> 
@@ -111,25 +114,27 @@ $tags = $row['cattags'];
 		            </li>
 
 		            <li> 
-						<label for="fileimageLocation">File Location</label>
-						<input name="fileimageLocation" type="text" value="<?php echo $fileLocation?>" id="fileimageLocation">
+						<label for="filelocation">File Location</label>
+						<input name="filelocation" type="text" value="<?php echo $filelocation?>" id="filelocation">
 		            </li> 
 		            <li> 
-						<label for="fileimageName">File Name</label>
-						<input name="fileimageName" type="text" value="<?php echo $fileName?>" id="fileimageName">
+						<label for="filename">File Name</label>
+						<input name="filename" type="text" value="<?php echo $filename?>" id="filename">
 		            </li>
 		             
 		            <li> 
-						<label for="coverimageLocation">Coverimage Location</label>
-						<input name="coverimageLocation" type="text" value="<?php echo $coverimageLocation ?>" id="coverimageLocation">
+						<label for="coverimagelocation">Coverimage Location</label>
+						<input name="coverimagelocation" type="text" value="<?php echo $coverimagelocation ?>" id="coverimagelocation">
 		            </li> 
 		            <li> 
-						<label for="coverimageName">Coverimage Name</label>
-						<input name="coverimageName" type="text" value="<?php echo $coverimageName?>" id="coverimageName">
+						<label for="coverimagename">Coverimage Name</label>
+						<input name="coverimagename" type="text" value="<?php echo $coverimagename?>" id="coverimagename">
 		            </li> 
 		            <li> 
 						<label for="isocred">Is OCRed?</label>
 						<input name="isocred" type="checkbox" <?php if($isocred == 1){echo 'checked="checked"';}?> id="isocred">
+
+						
 		            </li> 
 		        </ol> 
 		       <input type="submit" name="Submit" value="Submit Changes">

@@ -3,16 +3,16 @@ include 'config.php';
 
 $q=$_GET["q"];
 
-$sql="SELECT a.id as bd_book_id, a.coverimageLocation, a.coverimageName, a.fileLocation, a.fileName, b.id as bd_category_id, b.category FROM bd_book AS a JOIN bd_category AS b ON a.category = b.id WHERE b.category = '".$q."'";
+$query="SELECT a.id as bd_book_id, a.coverimagelocation, a.coverimagename, a.filelocation, a.filename, b.id as bd_category_id, b.category FROM bd_book AS a JOIN bd_category AS b ON a.category = b.id WHERE b.category = '".$q."'";
 
-$result = mysql_query($sql);
+$result = mysql_query($query);
 
-while($row = mysql_fetch_array($result))
+while($row = mysql_fetch_assoc($result))
   {
   	echo '<div id="bookcontainer">';
-  	echo '<a href="http://spike/'.$row['fileLocation'].$row['fileName'].'"><img id="displayimg" src="http://spike/'.$row['coverimageLocation'].$row['coverimageName'].'"></a>';
- // pass unique book ide in url
-  	echo '<a href="./editBook.php?id='.$row['bd_book_id'].'"><img src="http://spike/bookDisplay/edit-button.png"></a>';
+  	echo '<a href="'.$webpath.$row['filelocation'].$row['filename'].'"><img id="displayimg" src="'.$webpath.$row['coverimagelocation'].$row['coverimagename'].'"></a>';
+ // pass unique book id in url
+  	echo '<a href="./editBook.php?id='.$row['bd_book_id'].'"><img src="'.$bookdisplaywebpath.'edit-button.png"></a>';
   	echo '</div>';
   }
 mysql_close($con);

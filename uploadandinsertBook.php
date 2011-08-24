@@ -1,10 +1,10 @@
 <head>
-<link rel="stylesheet" type="text/css" href="style.css" media="screen" title="bbxcss" />
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" title="bbxcss" />
 <style type="text/css">
 </style>
 </head>
 
-<script type="text/javascript" src="./navbar.js"> </script>
+<script type="text/javascript" src="js/navbar.js"> </script>
 <form>
 <?php
 session_start();
@@ -111,7 +111,7 @@ $titleforfilename = preg_replace('/&/', '', $titleforfilename);
 
 //does imagefile exist, if so die.
 $imagefile = $titleforfilename."-".$firstauthor.".".$imageextension;
-$imagedirandfile = $rootdir.$imagedir."/".$imagefile;
+$imagedirandfile = $rootdir.$imagedir.$imagefile;
 
 if(file_exists($imagefile)){
 	echo "The image exists: $imagefile\n";
@@ -119,13 +119,15 @@ if(file_exists($imagefile)){
 	exit();
 }
 
-$savedir = $rootdir.$bookdir.$category."/";
-$parentdir = $rootdir.$bookdir.$category."/";
-$fileLocation = $bookdir.$category."/";
+$savedir = $rootdir.$category."/";
+$savedirdb = $category."/";
 if($subcategory){
 	$savedir = $savedir.$subcategory."/";
-	$fileLocation = $fileLocation.$subcategory."/";
+	$savedirdb = $savedirdb.$subcategory."/";
 }
+
+$imagesavedir = $rootdir.$imagedir."/";
+$imagesavedirdb = $imagedir;
 
 $savefile = $titleforfilename."-".$firstauthor.".".$filetype;
 $savedirandfile = $savedir.$savefile;
@@ -137,12 +139,12 @@ if(file_exists($savedirandfile)){
 }
 
 //last check: does category directory (and subdirectory)exist? if not, create.
-if(!file_exists($parentdir)){
-	mkdir($parentdir);
+if(!file_exists($savedir)){
+  `mkdir -p "$savedir"`;
 }
 if($subcategory){
 	if(!file_exists($savedir)){
-		mkdir($savedir);
+	  `mkdir -p "$savedir"`;
 	}
 }
 
@@ -161,7 +163,13 @@ if(!file_exists($imagefile)){
 
 //establish upload directory if does not exist create
 
-if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $savedirandfile)) {
+
+print "FILES: ".$_FILES['uploadedfile']['tmp_name']."<br>";
+print "$savedirandfile<br>";
+
+$tempfile = $_FILES['uploadedfile']['tmp_name'];
+
+if(move_uploaded_file("{$tempfile}", $savedir."/".$savefile)) {
 	if($debug){
 	    echo "The file ".$savedirandfile." has been uploaded<br>\n";
 	}
@@ -231,7 +239,7 @@ $author2 = mysql_real_escape_string($author2);
 $author3 = mysql_real_escape_string($author3);
 $author4 = mysql_real_escape_string($author4);
 $author5 = mysql_real_escape_string($author5);
-$query = "INSERT INTO bd_book VALUES('NULL','$title','$author1','$author2','$author3','$author4','$author5','$isbn','$categoryid','$subcategoryid','$savedir','$savefile','$imagedir','$imagefile', '$isocred')";
+$query = "INSERT INTO bd_book VALUES('NULL','$title','$author1','$author2','$author3','$author4','$author5','$isbn','$categoryid','$subcategoryid','$savedirdb','$savefile','$imagesavedirdb','$imagefile', '$isocred')";
 mysql_query($query,$con) or die(mysql_error());
 $bookid = mysql_insert_id();
 

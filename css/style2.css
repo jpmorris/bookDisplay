@@ -1,0 +1,251 @@
+body#velabs a.prod-action:active,
+body#velabs a.prod-action:focus,
+body#velabs a.prod-action:hover,
+body#cdnlabs a.prod-action:active,
+body#cdnlabs a.prod-action:focus,
+body#cdnlabs a.prod-action:hover {
+  background-position: -291px 0px;
+}
+
+
+#prod-content {
+	position:relative;
+	width:100%;
+	margin-top:15px;
+	
+	letter-spacing:-0.04em;
+  overflow:hidden;
+  -moz-border-radius:			7px;
+	-webkit-border-radius:		7px;
+}
+
+*html #prod-content {
+	margin-top:3px;
+	}
+*html body#cxpage #prod-content {
+	margin-top:15px;
+	}
+
+*:first-child+html #prod-content {
+	margin-top:3px;
+	}
+*:first-child+html body#cxpage #prod-content {
+	margin-top:15px;
+	}
+
+.prod-content-bottom,
+.prod-content-bottom-w {
+display: none;
+}
+
+
+
+
+#ve-index .prod-subsubhead, #vepage .prod-subsubhead {
+	background: #fff;
+	-moz-border-radius-topleft: 7px;
+	-moz-border-radius-topright: 7px;
+	-webkit-border-top-left-radius: 7px;
+	-webkit-border-top-right-radius: 7px;
+}
+.prod-subsubhead h4 {
+	display:block;
+	float:left;
+	margin:30px 0 0 0px;
+	font-weight:bold;
+	font-size:22px;
+	line-height:22px;
+	letter-spacing:-1px;
+	color:#4f4f4f;
+	padding: 0 20px 0 40px;
+}
+.prod-subsubhead h4 a, .prod-subsubhead h4 strong {
+	color:#000;
+}
+.prod-subsubnav ul li a {
+	color:#9e9e9e;
+	padding:3px 10px;
+}
+.prod-subcontent {
+	margin:0 30px;
+}
+#faq #prod-content, #faq #prod-content p, #addon-faq p {
+	font-family:Helvetica, Arial, sans-serif;
+	font-size:12px;
+	line-height:18px;
+	color:#777;
+	padding-bottom:2em;
+}
+#faq #prod-content p b, #addon-faq p b {
+	display:block;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#000;
+	padding-bottom:0.5em;
+}
+#faq #prod-content #faq_search_query {
+	color:#8d1c1c;
+	font-weight:bold;
+}
+#faq #prod-content ul {
+	font-size:12px;
+	color:#333;
+	list-style:circle outside;
+	padding:0 0 2em 2em;
+	margin-top:-1em;
+}
+#faq #prod-content ul li {
+	padding-bottom:0.1em;
+}
+#faq #faqsearch {
+	background:url(../img/greyscale-sprite__f050d77.png) no-repeat 0px -463px;
+	margin:0 0 30px;
+	padding:17px 0;
+	width:587px;
+}
+#faq #faqsearch #faqsearchinputbox {
+	border:1px solid #ddd;
+	margin:0 20px;
+	background:#fff url(../img/textinputbg__5d76440.gif) repeat-x;
+}
+
+
+*html body.faq .faqsearch .faqsearchinputbox input {
+	width:500px;
+	padding:10px 0;
+}
+
+
+#youhack, #nitropage {
+	background:#1a1a1a url(../img/nitro-subcontentbg01__b06c041.gif) repeat-x top !important;
+}
+#youhack a, #nitropage a {
+	color:#fff;
+}
+#youhack p, body#nitropage p {
+	color:#888;
+}
+body#youhack a:hover, body#nitropage a:hover, body#youhack a:focus, body#nitropage a:focus {
+	color:#f8d043;
+}
+
+body#youhack ul#prod-nav li a:hover, body#youhack ul#prod-nav li a:focus, body#nitropage ul#prod-nav li a:hover, body#nitropage ul#prod-nav li a:focus, body#youhack.overview ul#prod-nav li a.subnav-index, body#nitropage.whynitro ul#prod-nav li a.subnav-whynitro, body#nitropage.faq ul#prod-nav li a.subnav-faq, body#nitropage.addons ul#prod-nav li a.subnav-addons, body#nitropage.support ul#prod-nav li a.subnav-support {
+	background:none;
+	color:#F6E19A;
+}
+
+body#nitropage #prod-content {
+	margin:0;
+	padding:30px 0;
+	background:#000 url(../img/nitro-subcontentbg_top__947eec6.gif) no-repeat;
+}
+body#youhack .prod-lcol {
+	width:650px;
+	border-right:1px solid #333;
+	padding-bottom:70px;
+}
+
+body#nitropage .prod-subsubhead {
+	background:none;
+	height:auto;
+}
+body#nitropage .prod-subsubhead h4 {
+	color:#888;
+	margin:0;
+	font-weight:normal !important;
+}
+body#nitropage .prod-subsubhead h4 a, body#nitropage .prod-subsubhead h4 strong {
+	color:#fff;
+	font-weight:normal !important;
+}
+body#nitropage .prod-subsubnav {
+	margin:0;
+}
+body#nitropage .prod-subsubnav ul li a {
+	color:#888;
+}
+body#nitropage .prod-subsubnav ul li a:hover, body#nitropage .prod-subsubnav ul li a:focus, body#nitropage .prod-subsubnav ul li a.active {
+	color:#f8d043;
+	background:none;
+}
+body#nitropage .prodtopline {
+	border-color:#333;
+}
+body#nitropage .prod-subcontent {
+	padding:30px 0 0;
+}
+body#nitropage .prod-content {
+	border:0;
+	margin:0;
+	padding:15px 40px 0 10px;
+}
+body#nitropage .mainfeatures p {
+	padding:0;
+}
+body#nitropage .mainfeatures p b {
+	font-size:18px;
+	font-weight:normal;
+	color:#f6e19a;
+}
+body#cxpage .quotebubble-thin-bttm {
+	width:220px;
+}
+body#cxpage .quotebubble-thin-bttm .qb-mid {
+	background:#dedede;
+	padding:12px 20px 15px;
+}
+body#cxpage .quotebubble-thin-bttm .qb-top {
+	height:8px;
+	width:100%;
+	font-size:1px;
+	line-height:1px;
+	background:url(../img/greyscale-sprite__f050d77.png) no-repeat left -19px;
+}
+body#cxpage .quotebubble-thin-bttm .qb-bttm {
+	height:30px;
+	width:100%;
+	font-size:1px;
+	line-height:1px;
+	background:url(../img/greyscale-sprite__f050d77.png) no-repeat left -35px;
+}
+body#cxpage .quotebubble-thin-bttm .qb-top .qb-tr {
+	width:8px;
+	height:8px;
+	float:right;
+	background:#f3f3f3 url(../img/greyscale-sprite__f050d77.png) no-repeat -632px -19px;
+}
+body#cxpage .quotebubble-thin-bttm .qb-bttm .qb-br {
+	width:8px;
+	height:8px;
+	float:right;
+	background:#f3f3f3 url(../img/greyscale-sprite__f050d77.png) no-repeat -632px -35px;
+}
+
+body#nitropage .prod-sidebar cite strong {
+	color:#fff;
+}
+body#nitropage.faq .prod-content p b {
+	color:#F6E19A;
+	font-size:115%;
+}
+body#nitropage .addon-faq p b {
+	color:#fff;
+	font-size:115%;
+}
+body#nitropage.faq .faqsearch {
+	background:url(../img/nitro_faqsearch__80573fb.gif)no-repeat;
+}
+
+/*This css contains code for the statis loading image in the right of the textbox */
+body.faq .faqsearch .faqsearchinputbox input {
+        font-size:16px;
+	color:#6e6e6e;
+	padding:10px;
+        border:none;
+	background:url(img/loading_static.gif) no-repeat right 50%;
+        width:510px;
+}
+/*The css class below contains the animated loading image .this will be added on the dom later with Jquery\
+*/
+body.faq .faqsearch .faqsearchinputbox input.loading {
+        background:url(img/loading_animate.gif) no-repeat right 50%;

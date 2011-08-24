@@ -168,13 +168,13 @@ $_SESSION['authorAry'] = $authorAry;
 ?>
 
 <head> 
-	<link rel="stylesheet" type="text/css" href="style.css" media="screen" title="bbxcss" /> 
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" title="bbxcss" /> 
 	<style type="text/css"> 
 	</style> 
 </head> 
 	<body>
 	
-<script type="text/javascript" src="./navbar.js"> </script>
+<script type="text/javascript" src="js/navbar.js"> </script>
 		<form id="verifyform" enctype="multipart/form-data" name="form2" method="POST" action="uploadandinsertBook.php">
 			<fieldset>
 				<h1>Verify the information</h1>

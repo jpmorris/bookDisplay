@@ -1,15 +1,18 @@
 <?php
-//constants
-$rootdir = "/media/storage1/docs/"; //parent directory of where the books will be stored
-$bookdir = "books/"; 				//name of the book folder
-$imagedir = "books/coverimages/"; 	//location of coverimage folder
-$filetype = "pdf"; 					//the filetype of the books in the library
-$public_key = "<AWS access key>";				// AWS access key code ID
-$private_key = "<AWS secret key>";      // AWS secret access key)
-$host = "<hostname>";
-$user = "<username>";
-$pass = "<password>";
-$db_name = "<db name>";
+//constants -- youll want to change these
+$rootdir = "/media/storage1/docs/books/";
+$imagedir = "coverimages/";
+$webpath = 'http://spike/books/';
+$bookdisplaywebpath = 'http://spike/bookDisplay/';
+$filetype = "pdf";
+$public_key = "kjfkqljnrlwrkeklwr";				// AWS access key code ID
+$private_key = "skhfskajfklsadjflksjafkldsjfklsdjfkljsfa";      // AWS secret access key)
+$host = "localhost";
+$user = "localuser";
+$pass = "pass";
+$db_name = "bookDisplay";
+
+$debug = 1;
 
 $debug = 1;
 
