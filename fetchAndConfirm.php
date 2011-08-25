@@ -27,7 +27,7 @@ $returnXML = "";		     		     	        // XML returned
 $returnXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" ;		     		     	        // XML returned
 
 $isbn = ($_SESSION['isbn'] = $_POST['isbn']);
-
+$isbn = trim($isbn);
 if ($useTestData)
 {
 	$params =  array("Operation"=>"ItemSearch",

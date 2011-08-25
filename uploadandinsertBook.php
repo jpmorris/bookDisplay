@@ -22,7 +22,12 @@ $category = $_POST['category'];
 $subcategory = $_POST['subcategory'];
 $isbn = $_SESSION['isbn'];
 $customimageurl = $_POST['customimageurl'];
-$isocred = $_POST['isocred'];
+
+$isocred = 0;
+
+if(isset($_POST['isocred'])){
+	$isocred = 1;
+}
 $category = trim($category);
 $subcategory = trim($subcategory);
 
@@ -246,9 +251,12 @@ $bookid = mysql_insert_id();
 
 //INSERT TAGS INTO TAG TABLE AND CREATE TAG TABLE
 
-foreach($tagAry as $tag){	
+
+foreach($tagAry as $tag){
 	//check if tag exists
+	$tag = mysql_real_escape_string($tag);
 	$query = "SELECT * FROM bd_tag WHERE tagname = '$tag'";
+	//clean up tags, if has an apostrophe in it
 	$result = mysql_query($query);
 	checkResult($result,$query);
 	$numrows = mysql_num_rows($result);

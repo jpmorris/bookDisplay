@@ -58,7 +58,7 @@ else{
 }
 
 
-$query="select *, GROUP_CONCAT(tagname) as cattags from bd_tagmap as a join bd_tag as b on tag_id = b.id where book_id = ".$id;
+$query="select *, GROUP_CONCAT(tagname) as cattags from bd_tagmap as a join bd_tag as b on tag_id = b.id where book_id = '".$id."'";
 $result = mysql_query($query);
 $row = mysql_fetch_assoc($result);
 $tags = $row['cattags'];

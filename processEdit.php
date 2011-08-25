@@ -232,6 +232,7 @@ if(!empty($newtagAry)){
 		if(!($match)){
 			//if it's an old tag check for insersion
 			//only insert into tag table if it's not there
+			$newtag = mysql_real_escape_string($newtag);
 			$query = "SELECT * FROM bd_tag WHERE tagname = '$newtag'";
 			print "1".$query."<br>";
 			$result = mysql_query($query);
@@ -269,6 +270,7 @@ if(!empty($oldtagAry)){
 
 
 		if(!($match)){
+			$oldtag = mysql_real_escape_string($oldtag);
 			$query = "SELECT tagmap.id, tag.tagname, tag.id AS tagid, tagmap.book_id, tagmap.tag_id FROM bd_tag AS tag JOIN bd_tagmap AS tagmap ON tagmap.tag_id = tag.id WHERE tagname = '$oldtag'";
 			$result = mysql_query($query);
 			$row = mysql_fetch_assoc($result);
@@ -308,6 +310,7 @@ if(!empty($oldtagAry)){
 //
 ////// MAIN TABLE/////
 //
+$title = mysql_real_escape_string($title);
 $query = "UPDATE bd_book SET title='$title', author1='$author1', author2='$author2', author3='$author3', author4='$author4', author5='$author5', isbn='$isbn', category='$newcategoryid', subcategory='$newsubcategoryid', filelocation='$filelocation', filename='$filename', coverimagelocation='$coverimagelocation', coverimagename='$coverimagename', isocred='$isocred' WHERE id='$id'";
 
 $result = mysql_query($query);
