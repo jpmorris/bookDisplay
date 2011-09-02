@@ -61,6 +61,27 @@ if(isset($authorAry[5])){
 }else { $author5 = "";}
 //print info
 
+
+$author1 = preg_replace('/ü/', 'u', $author1);
+$author2 = preg_replace('/ü/', 'u', $author2);
+$author3 = preg_replace('/ü/', 'u', $author3);
+$author4 = preg_replace('/ü/', 'u', $author4);
+$author5 = preg_replace('/ü/', 'u', $author5);
+
+$author1 = preg_replace('/é/', 'e', $author1);
+$author2 = preg_replace('/é/', 'e', $author2);
+$author3 = preg_replace('/é/', 'e', $author3);
+$author4 = preg_replace('/é/', 'e', $author4);
+$author5 = preg_replace('/é/', 'e', $author5);
+
+$author1 = preg_replace('/ö/', 'o', $author1);
+$author2 = preg_replace('/ö/', 'o', $author2);
+$author3 = preg_replace('/ö/', 'o', $author3);
+$author4 = preg_replace('/ö/', 'o', $author4);
+$author5 = preg_replace('/ö/', 'o', $author5);
+
+
+
 echo $title,"<br>\n";
 echo $imageurl,"<br>\n";
 echo $customimageurl,"<br>\n";
@@ -104,6 +125,11 @@ $titleforfilename = preg_replace('/|/', '', $titleforfilename);
 $titleforfilename = preg_replace('/\)/', '', $titleforfilename);
 $titleforfilename = preg_replace('/\(/', '', $titleforfilename);
 $titleforfilename = preg_replace('/&/', '', $titleforfilename);
+$titleforfilename = preg_replace('/�/', '', $titleforfilename);
+$titleforfilename = preg_replace('/™/', '', $titleforfilename);
+$titleforfilename = preg_replace('/ü/', '', $titleforfilename);
+
+
 
 //$titleforimagefilename = preg_replace('/\s/', '_',$titleforimagefilename);
 
@@ -111,6 +137,13 @@ $titleforfilename = preg_replace('/&/', '', $titleforfilename);
 //SANITY CHECKS
 
 //check for ISBN in database
+
+//if the title has more than 140 chars truncate 
+
+if (strlen($titleforfilename) > 140) {
+		$titleforfilename = substr($titleforfilename, 0, 140);
+}
+
 
 
 

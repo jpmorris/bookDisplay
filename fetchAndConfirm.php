@@ -160,6 +160,11 @@ foreach($xmlstring->results->ItemLookupResponse->Items->Item->ItemAttributes->Au
 //	echo $author,"<br>\n";
 //}
 
+//strip non-universal tradmark symbol
+$title = preg_replace('/™/', '', $title);
+$title = preg_replace('/â„¢/', '', $title);
+
+
 
 $_SESSION['title'] = $title;
 $_SESSION['imageurl'] = $imageurl;
