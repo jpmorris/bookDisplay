@@ -17,12 +17,16 @@ $isbn = trim($isbn);
 
 $params =  array("Operation"=>"ItemLookup",
 		   "ResponseGroup"=>"Small,Images,ItemAttributes",
-		   "ItemId"=>$isbn);
+		   "ItemId"=>$isbn,
+		   "Version"=>$awsversion);
 
-$returnXML = get_amazon_xml( $public_key, $private_key, $params);
+$returnXML = get_amazon_xml( $public_key, $private_key, $associatetag, $params);
 
 
 $xmlstring = new SimpleXMLElement($returnXML);
+
+
+$temp = (string) $xmlstring;
 
 
 $title = (string) $xmlstring->results->ItemLookupResponse->Items->Item->ItemAttributes->Title;

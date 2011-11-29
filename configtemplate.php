@@ -1,8 +1,13 @@
 <?php
+session_start();
+
+include 'functions.php';
+
 //constants -- youll want to change these
 $rootdir = "/media/storage1/docs/books/";
 $imagedir = "coverimages/";
 $webpath = 'http://spike/books/';
+$fetchbyISBNpage = "fetchbyISBN.php";
 $bookdisplaywebpath = 'http://spike/bookDisplay/';
 $filetype = "pdf";
 $public_key = "kjfkqljnrlwrkeklwr";				// AWS access key code ID
@@ -11,8 +16,8 @@ $host = "localhost";
 $user = "localuser";
 $pass = "pass";
 $db_name = "bookDisplay";
-
-$debug = 1;
+$awsversion = "2010-11-01";
+$associatetag = "httpwwwawebsite-20"; //associatetag need to get this from amazon
 
 $debug = 1;
 

@@ -7,7 +7,6 @@
 <script type="text/javascript" src="js/navbar.js"> </script>
 <form>
 <?php
-session_start();
 
 include 'config.php';
 // include '../Zend/Pdf.php';
@@ -41,11 +40,9 @@ foreach($tagAryuntrimmed as $untrimmedtag){
 
 //get authors
 if(isset($authorAry[1])){
-	$firstauthor = $authorAry[1];
-   	$author1 = $authorAry[1];
+	$author1 = $authorAry[1];
 } else {
-	$firstauthor = "";
-   	$author1 = "";
+	$author1 = "";
 }
 if(isset($authorAry[2])){
 	$author2 = $authorAry[2];
@@ -79,6 +76,13 @@ $author2 = preg_replace('/ö/', 'o', $author2);
 $author3 = preg_replace('/ö/', 'o', $author3);
 $author4 = preg_replace('/ö/', 'o', $author4);
 $author5 = preg_replace('/ö/', 'o', $author5);
+
+
+$author1 = preg_replace('/\//', '', $author1);
+$author2 = preg_replace('/\//', '', $author2);
+$author3 = preg_replace('/\//', '', $author3);
+$author4 = preg_replace('/\//', '', $author4);
+$author5 = preg_replace('/\//', '', $author5);
 
 
 
@@ -148,7 +152,7 @@ if (strlen($titleforfilename) > 140) {
 
 
 //does imagefile exist, if so die.
-$imagefile = $titleforfilename."-".$firstauthor.".".$imageextension;
+$imagefile = $titleforfilename."-".$author1.".".$imageextension;
 $imagedirandfile = $rootdir.$imagedir.$imagefile;
 
 if(file_exists($imagefile)){
@@ -167,7 +171,7 @@ if($subcategory){
 $imagesavedir = $rootdir.$imagedir."/";
 $imagesavedirdb = $imagedir;
 
-$savefile = $titleforfilename."-".$firstauthor.".".$filetype;
+$savefile = $titleforfilename."-".$author1.".".$filetype;
 $savedirandfile = $savedir.$savefile;
 //does file exist, if so die
 if(file_exists($savedirandfile)){
